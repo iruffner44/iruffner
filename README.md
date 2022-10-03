@@ -6,7 +6,7 @@
 1. Clone this repository in oh-my-zsh's plugins directory:
 
     ```zsh
-    git clone https://github.com/iruffner44/iruffner.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/iruffner
+    git clone git@github.com:iruffner44/iruffner.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/iruffner
     ```
 
 2. Activate the plugin in `~/.zshrc`:
