@@ -40,7 +40,7 @@ function ql () {
 }
 
 function configEdit () {
-    code $ZSH/custom/iruffner.zsh
+    code $ZSH/custom/plugins/iruffner/iruffner.plugin.zsh
 }
 
 function configReload () {
