@@ -122,15 +122,49 @@ alias eserver="cdo ~/code/expr/emssa"
 alias eclient="cdo ~/code/expr/emssa-client"
 alias mvcr="cdo ~/code/expr/mvcr"
 alias buildAndRun="npm run build; npm run start-local"
+alias checkoutDevelopAndCleanBranches="git checkout develop; git pull; gitbranchcleaner"
 
 #perform a gitup on all 
 function gitup () {
-    for subdir in *; 
+    for subdir in $(pwd)/*; 
         do
             if [ -d $subdir ]; then
                 echo ""
-                echo "*******   $subdir"
+                echo "-------------------------------------------"
+                echo "$subdir"
                 git -C $subdir pull
             fi
         done
+}
+
+#perform a npm i on all 
+function npmInstallup () {
+    local currentDirectory=$(pwd)
+    for subdir in $(pwd)/*; 
+        do
+            if [ -d $subdir ]; then
+                echo ""
+                cdo "$subdir"
+                echo "-------------------------------------------"
+                echo "$(pwd)"
+                npm i
+            fi
+        done
+    cdo $currentDirectory
+}
+
+#perform a npm audit fix on all 
+function npmAuditFixup () {
+    local currentDirectory=$(pwd)
+    for subdir in $(pwd)/*; 
+        do
+            if [ -d $subdir ]; then
+                echo ""
+                cdo "$subdir"
+                echo "-------------------------------------------"
+                echo "$(pwd)"
+                npm audit fix
+            fi
+        done
+    cdo $currentDirectory
 }
